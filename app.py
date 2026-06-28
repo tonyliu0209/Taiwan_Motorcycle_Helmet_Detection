@@ -157,7 +157,7 @@ st.markdown("---")
 # --- 6. 分頁佈局 ---
 tab1, tab2, tab3, tab4 = st.tabs(["📸 圖片測試", "🎥 影片測試", "📊 Model Performance", "🔍 Project Insights"])
 
-# --- Tab 1: 圖片測試【修正：改用 valid_with / valid_without 雙變數，配合新的 draw_predictions 簽名】 ---
+# --- Tab 1: 圖片測試【修正：改用 valid_with / valid_without 雙變數，配合新的 draw_predictions】 ---
 with tab1:
     st.header("上傳圖片進行偵測")
     uploaded_file = st.file_uploader("選擇一張台灣街景或機車騎士圖片...", type=["jpg", "jpeg", "png"])
@@ -338,9 +338,9 @@ with tab3:
         }
         st.table(class_data)
 
-# --- Tab 4: Project Insights ---
+# --- Tab 4: Development Insights ---
 with tab4:
-    st.header("🔍 Project Insights & Lessons Learned")
+    st.header("🔍 Development Insights & Lessons Learned")
 
     st.markdown("### 🛠️ 資料集優化歷程 (Dataset Refinement)")
     st.write(
