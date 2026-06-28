@@ -155,7 +155,7 @@ with col_flow:
 st.markdown("---")
 
 # --- 6. 分頁佈局 ---
-tab1, tab2, tab3, tab4 = st.tabs(["📸 圖片測試", "🎥 影片測試", "📊 Model Performance", "🔍 Project Insights"])
+tab1, tab2, tab3, tab4 = st.tabs(["📸 圖片測試", "🎥 影片測試", "📊 Model Performance", "🔍 Development Insights"])
 
 # --- Tab 1: 圖片測試【修正：改用 valid_with / valid_without 雙變數，配合新的 draw_predictions】 ---
 with tab1:
