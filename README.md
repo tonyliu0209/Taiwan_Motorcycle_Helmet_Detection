@@ -2,7 +2,7 @@
 
 > 使用 YOLOv8 遷移學習（Transfer Learning）建立台灣道路安全帽辨識系統，並透過資料品質改善、錯誤分析與模型迭代，將 mAP50 從 0.26 提升至 0.87。
 
-🔗 **[線上 Demo]( 請填入 Streamlit Cloud 連結 )**
+🔗 Live Demo: https://taiwanmotorcyclehelmetdetection-sdrmappw36jjkb96n7bfkdl.streamlit.app/
 
 ---
 
@@ -10,7 +10,7 @@
 
 台灣道路上的機車數量極高，但公開安全帽偵測資料集多半來自國外場景，與實際道路環境存在明顯差異。
 
-因此本專案以真實 dashcam 影像為基礎，重新建立符合台灣道路場景的三分類安全帽偵測系統：
+因此本專案以真實 dashcam 影像為基礎，重新建立符合台灣道路場景的三類別安全帽辨識模型：
 - bike
 - rider_with_helmet
 - rider_without_helmet
@@ -19,9 +19,13 @@
 
 ## 🎯 系統展示
 
-| 圖片辨識 | 影片辨識 |
-|---|---|
-| ![圖片測試截圖](img/frame_001350.jpg) | ![影片測試 GIF](img/demo.gif) |
+**圖片辨識**
+
+![圖片測試截圖](img/frame_001350.jpg)
+
+**影片辨識**
+
+![影片測試 GIF](img/demo.gif)
 
 ## 🖥️ Streamlit 互動展示
 
@@ -65,7 +69,7 @@
 
 - **模型**：YOLOv8n，以遷移學習（Transfer Learning）為基礎，自訂 3-class（`bike` / `rider_with_helmet` / `rider_without_helmet`）
 - **資料**：以自行蒐集之台灣及東南亞地區 dashcam 影像為主，搭配公開安全帽偵測資料集進行標注與補強。
-      - 由於部分影像來源涉及第三方內容，本專案不提供資料集下載。
+  - 由於部分影像來源涉及第三方內容，本專案不提供資料集下載。
 - **後處理**：Bike Proximity Filter，過濾不靠近任何機車的騎士偵測框，降低路人誤判為騎士的雜訊
 - **展示介面**：Streamlit（圖片/影片測試 + 模型效能展示）
 
@@ -74,7 +78,7 @@
       ↓
 YOLOv8 推論（3-Class Detection）
       ↓
-Bike Proximity 過濾（雙 class 幾何後處理）
+Bike Proximity Filter（雙 class 幾何後處理）
       ↓
 輸出安全帽辨識結果
 ```
@@ -83,9 +87,9 @@ Bike Proximity 過濾（雙 class 幾何後處理）
 
 ### 1️⃣ 發現並修正 Validation Data Leakage
 
-檢視 v2、v3 的資料處理流程時，發現驗證集存在 Data Leakage：augmented 圖片在切分 train/valid 前即已產生，導致同一張原圖的不同增強版本可能分別落入 train 與 valid，使 mAP 數字過於樂觀。
+檢視 v2、v3 的資料處理流程時，發現驗證集存在 Data Leakage：augmented 圖片在切分 train/valid 前即已產生，導致同一張原圖的不同增強版本可能分別落入 train 與 valid，使驗證結果過於樂觀。
 
-檢查結果發現資料重疊率如下：
+資料重疊率如下：
 
 - v1：7.5%
 - v2：15.1%
@@ -112,8 +116,7 @@ Bike Proximity 過濾（雙 class 幾何後處理）
 
 - 補充帽類負樣本（棒球帽、鴨舌帽等），降低跨類別誤判
 - 補充腳踏車負樣本或新增獨立 class
-- 評估模型於夜間場景的表現
-- 蒐集低光源訓練資料並進行補強
+- 蒐集夜間與低光源訓練資料，評估並強化模型於低光源場景的表現
 - 引進 ByteTrack 做多目標追蹤與車流統計
 
 ## 📄 License
