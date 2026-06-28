@@ -2,7 +2,7 @@
 
 > 使用 YOLOv8 遷移學習（Transfer Learning）建立台灣道路安全帽辨識系統，並透過資料品質改善、錯誤分析與模型迭代，將 mAP50 從 0.26 提升至 0.87。
 
-🔗 Live Demo: https://taiwanmotorcyclehelmetdetection-sdrmappw36jjkb96n7bfkdl.streamlit.app/
+🔗 Live Demo: https://taiwanmotorcyclehelmetdetection-phhhs2sxg5pn9xt9jgddvp.streamlit.app/
 
 ---
 
@@ -99,7 +99,7 @@ Bike Proximity Filter（雙 class 幾何後處理）
 
 ### 2️⃣ 後處理過濾邏輯的迭代
 
-初版只對 `rider_without_helmet` 套用 proximity filter（因為這是誤判代價較高的警示類別），但實測影片時發現路人也會被誤判為 `rider_with_helmet`，因此將過濾範圍擴大為雙 class，持續用真實場景測試結果修正設計，而非單純依賴驗證集指標。
+初版只對 `rider_without_helmet` 套用 bike proximity filter（因為這是誤判代價較高的警示類別），但實測影片時發現路人也會被誤判為 `rider_with_helmet`，因此將過濾範圍擴大為雙 class，持續用真實場景測試結果修正設計，而非單純依賴驗證集指標。
 
 ![Bike Proximity Filter 效果示意](img/frame_005100_masked.jpg)
 
