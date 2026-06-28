@@ -36,7 +36,7 @@
 | 📸 圖片測試 | 上傳街景或騎士圖片，即時顯示偵測結果；原圖與標注框並排比較 |
 | 🎥 影片測試 | 上傳本地影片或使用內建範例，可調整 frame skip 速度；處理完成後可下載標注結果影片 |
 | 📊 Model Performance | 展示 v1→v4 真實進步曲線（Data Leakage 修正後）及 v4 各類別詳細指標 |
-| 🔍 Project Insights | Data Leakage 發現歷程、後處理邏輯迭代等開發心得 |
+| 🔍 Development Insights | Data Leakage 發現歷程、後處理邏輯迭代等開發心得 |
 
 側邊欄可即時調整 Confidence 門檻值，並切換 **Bike Proximity Filter**（開啟時騎士偵測框需靠近機車才計入，以降低路人誤判雜訊）。
 
